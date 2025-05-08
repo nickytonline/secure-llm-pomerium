@@ -47,3 +47,7 @@ getent group video
 ```
 
 **Note:** GPU acceleration requires that Open WebUI and Ollama support your GPU type. Currently, support for AMD and Intel GPUs may be limited or experimental.
+
+## Custom Domain
+
+You can also use your own domain with Pomerium Zero. For more information, see the Pomerium Zero [documentation for custom domains](https://www.pomerium.com/docs/capabilities/custom-domains).
