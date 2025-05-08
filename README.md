@@ -2,6 +2,10 @@
 
 This project is based off the instructions in Pomerium's [Self-Hosted LLM Behind Pomerium](https://bit.ly/4376Wki) guide.
 
+## What's do you get?
+
+[Open WebUI](https://github.com/open-webui/open-webui) with your local LLMs, care of [Ollama](https://ollama.com), secured by [Pomerium](https://pomerium.io).
+
 ## Prerequisites
 
 - [Pomerium Zero account](https://bit.ly/4k7RIm5)
