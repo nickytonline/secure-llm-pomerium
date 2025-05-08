@@ -1,0 +1,53 @@
+services:
+  pomerium:
+    image: pomerium/pomerium:latest
+    ports:
+      - 443:443
+    restart: always
+    environment:
+      POMERIUM_ZERO_TOKEN: ${POMERIUM_ZERO_TOKEN}
+      XDG_CACHE_HOME: /var/cache
+    volumes:
+      - pomerium-cache:/var/cache
+    networks:
+      main:
+        aliases:
+        - ${VERIFY_URL}
+  verify:
+    image: cr.pomerium.com/pomerium/verify:latest
+    networks:
+      main:
+        aliases:
+        - verify
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:ollama
+    container_name: open-webui
+    environment:
+      HOST: '0.0.0.0'
+      OLLAMA_HOST: '0.0.0.0'
+      WEBUI_URL: ${WEBUI_URL}
+      WEBUI_AUTH_TRUSTED_EMAIL_HEADER: 'X-Pomerium-Claim-Email'
+      WEBUI_AUTH: 'False'
+    ports:
+      - "3000:8080"
+    # If you have a GPU, you can uncomment the following line
+    # and configure your own GPU device in your .env file
+    # devices:
+    #   - ${GPU_DEVICE}:${GPU_DEVICE}
+    # group_add:
+    #   - "44" # video group to allow access to /dev/dri (check with `getent group video`)
+    volumes:
+      - ollama_data:/root/.ollama      # Persist installed models and config
+      - open_webui_data:/app/backend/data  # Persist Open WebUI data
+    restart: always
+    networks:
+      main: {}
+
+networks:
+  main:
+
+volumes:
+  ollama_data:
+  open_webui_data:
+  pomerium-cache:
