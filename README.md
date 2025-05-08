@@ -48,6 +48,31 @@ getent group video
 
 **Note:** GPU acceleration requires that Open WebUI and Ollama support your GPU type. Currently, support for AMD and Intel GPUs may be limited or experimental.
 
+## Adding Local Models
+
+To add local models within the container, follow these steps:
+
+1. **Access the Container**:
+   - First, make sure your container is running. You can access it using:
+     ```bash
+     docker exec -it open-webui /bin/bash
+     ```
+
+2. **Download Local Models**:
+   - Once inside the container, you can download the desired local models using:
+     ```bash
+     ollama pull <model_name>
+     ```
+   - Replace `<model_name>` with the specific model you want to pull.
+
+3. **Verify the Model**:
+   - After pulling, verify that the model has been successfully added by listing the available models:
+     ```bash
+     ollama list
+     ```
+
+Ensure that your container has internet access to pull models successfully. If you encounter any issues, check your container's network settings or consult the Ollama documentation for troubleshooting tips.
+
 ## Custom Domain
 
 You can also use your own domain with Pomerium Zero. For more information, see the Pomerium Zero [documentation for custom domains](https://www.pomerium.com/docs/capabilities/custom-domains).
