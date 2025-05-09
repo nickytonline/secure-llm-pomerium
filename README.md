@@ -9,7 +9,7 @@ This project is based off the instructions in Pomerium's [Self-Hosted LLM Behind
 ## Prerequisites
 
 - [Pomerium Zero account](https://bit.ly/4k7RIm5)
-- [Docker](https://docs.docker.com/get-docker/) and[Docker Compose](https://docs.docker.com/compose/install/) or [Orbstack](https://orbstack.dev/)
+- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) or [Orbstack](https://orbstack.dev/)
 - Port 443 open on your router or wherever you host this project.
 
 ## Configure Pomerium Zero
